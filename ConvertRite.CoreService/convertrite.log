@@ -1,0 +1,131 @@
+"2024-04-15 16:11:49 [main] INFO  c.r.p.c.ConvertRiteApiApplication - Starting ConvertRiteApiApplication using Java 21.0.2 on DESKTOP-4VEA2I6 with PID 13044 (D:\code core latest\ConvertRite.CoreService\target\classes started by ThirumalaBoya in D:\code core latest\ConvertRite.CoreService)
+""2024-04-15 16:11:49 [main] INFO  c.r.p.c.ConvertRiteApiApplication - The following profiles are active: test
+""2024-04-15 16:11:51 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2024-04-15 16:11:51 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 1 JPA repository interfaces.
+""2024-04-15 16:11:51 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2024-04-15 16:11:51 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 JPA repository interfaces.
+""2024-04-15 16:11:51 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2024-04-15 16:11:51 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 387 ms. Found 106 JPA repository interfaces.
+""2024-04-15 16:11:52 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'asyncConfig' of type [com.rite.products.convertrite.multitenancy.async.AsyncConfig$$EnhancerBySpringCGLIB$$fb712434] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2024-04-15 16:11:53 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9000 (http)
+""2024-04-15 16:11:53 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2024-04-15 16:11:53 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.53]
+""2024-04-15 16:11:54 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2024-04-15 16:11:54 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4381 ms
+""2024-04-15 16:11:54 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: master-persistence-unit]
+""2024-04-15 16:11:54 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+""2024-04-15 16:11:54 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2024-04-15 16:11:55 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2024-04-15 16:11:56 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2024-04-15 16:11:56 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'master-persistence-unit'
+""2024-04-15 16:11:56 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: tenant-persistence-unit]
+""2024-04-15 16:11:56 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
+""2024-04-15 16:11:57 [main] WARN  o.h.b.i.InFlightMetadataCollectorImpl - HHH000069: Duplicate generator name process_requests_generator
+""2024-04-15 16:11:57 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.rite.products.convertrite.model.XxrFormulaColumnsId
+""2024-04-15 16:11:57 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.rite.products.convertrite.model.XxrFormulaColumnsId
+""2024-04-15 16:11:57 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.rite.products.convertrite.model.XxrRoleObjectLinksId
+""2024-04-15 16:11:57 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.rite.products.convertrite.model.XxrRoleObjectLinksId
+""2024-04-15 16:11:57 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.rite.products.convertrite.model.CloudTableId
+""2024-04-15 16:11:57 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.rite.products.convertrite.model.CloudTableId
+""2024-04-15 16:11:57 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.rite.products.convertrite.model.XxrProjectsId
+""2024-04-15 16:11:57 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.rite.products.convertrite.model.XxrProjectsId
+""2024-04-15 16:11:57 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.rite.products.convertrite.model.XxrUserRolesId
+""2024-04-15 16:11:57 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.rite.products.convertrite.model.XxrUserRolesId
+""2024-04-15 16:11:57 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.rite.products.convertrite.model.XxrFormulaTablesId
+""2024-04-15 16:11:57 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.rite.products.convertrite.model.XxrFormulaTablesId
+""2024-04-15 16:11:58 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2024-04-15 16:11:58 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'tenant-persistence-unit'
+""2024-04-15 16:12:02 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 15 endpoint(s) beneath base path '/actuator'
+""2024-04-15 16:12:02 [main] INFO  c.r.p.c.c.JwtSecurityConfig - entering configure Method####
+""2024-04-15 16:12:02 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2024-04-15 16:12:03 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5cd61f61, org.springframework.security.web.context.SecurityContextPersistenceFilter@2b3af7ba, org.springframework.security.web.header.HeaderWriterFilter@29a08daf, org.springframework.web.filter.CorsFilter@2f193ff4, org.springframework.security.web.csrf.CsrfFilter@7af19dd0, org.springframework.security.web.authentication.logout.LogoutFilter@6797b494, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4c39c972, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5e428dde, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@547cc110, org.springframework.security.web.session.SessionManagementFilter@4bf6e483, org.springframework.security.web.access.ExceptionTranslationFilter@5a52e060, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@30c1a903]
+""2024-04-15 16:12:03 [main] INFO  c.r.p.c.m.c.t.h.DynamicDataSourceBasedMultiTenantSpring - DynamicDataSources based multitenancy enabled
+""2024-04-15 16:12:03 [main] INFO  com.zaxxer.hikari.HikariDataSource - masterDataSource - Starting...
+""2024-04-15 16:12:06 [main] INFO  com.zaxxer.hikari.HikariDataSource - masterDataSource - Start completed.
+""2024-04-15 16:12:07 [main] INFO  c.r.p.c.m.c.t.h.DynamicDataSourceBasedMultiTenantSpring - Initializing dynamic datasource for tenant 134
+""2024-04-15 16:12:10 [main] INFO  c.r.p.c.m.c.t.h.DynamicDataSourceBasedMultiTenantSpring - Dynamic datasource ran for tenant 134
+""2024-04-15 16:12:10 [main] INFO  c.r.p.c.m.c.t.h.DynamicDataSourceBasedMultiTenantSpring - Initializing dynamic datasource for tenant 135
+""2024-04-15 16:12:14 [main] INFO  c.r.p.c.m.c.t.h.DynamicDataSourceBasedMultiTenantSpring - Dynamic datasource ran for tenant 135
+""2024-04-15 16:12:14 [main] INFO  c.r.p.c.m.c.t.h.DynamicDataSourceBasedMultiTenantSpring - Initializing dynamic datasource for tenant 133
+""2024-04-15 16:12:17 [main] INFO  c.r.p.c.m.c.t.h.DynamicDataSourceBasedMultiTenantSpring - Dynamic datasource ran for tenant 133
+""2024-04-15 16:12:17 [main] INFO  c.r.p.c.m.c.t.h.DynamicDataSourceBasedMultiTenantSpring - Initializing dynamic datasource for tenant 136
+""2024-04-15 16:12:20 [main] INFO  c.r.p.c.m.c.t.h.DynamicDataSourceBasedMultiTenantSpring - Dynamic datasource ran for tenant 136
+""2024-04-15 16:12:20 [main] INFO  c.r.p.c.m.c.t.h.DynamicDataSourceBasedMultiTenantSpring - Initializing dynamic datasource for tenant 137
+""2024-04-15 16:12:23 [main] INFO  c.r.p.c.m.c.t.h.DynamicDataSourceBasedMultiTenantSpring - Dynamic datasource ran for tenant 137
+""2024-04-15 16:12:23 [main] INFO  c.r.p.c.m.c.t.h.DynamicDataSourceBasedMultiTenantSpring - Initializing dynamic datasource for tenant 138
+""2024-04-15 16:12:26 [main] INFO  c.r.p.c.m.c.t.h.DynamicDataSourceBasedMultiTenantSpring - Dynamic datasource ran for tenant 138
+""2024-04-15 16:12:26 [main] INFO  c.r.p.c.m.c.t.h.DynamicDataSourceBasedMultiTenantSpring - Initializing dynamic datasource for tenant 139
+""2024-04-15 16:12:30 [main] INFO  c.r.p.c.m.c.t.h.DynamicDataSourceBasedMultiTenantSpring - Dynamic datasource ran for tenant 139
+""2024-04-15 16:12:30 [main] INFO  c.r.p.c.m.c.t.h.DynamicDataSourceBasedMultiTenantSpring - Initializing dynamic datasource for tenant 140
+""2024-04-15 16:12:33 [main] INFO  c.r.p.c.m.c.t.h.DynamicDataSourceBasedMultiTenantSpring - Dynamic datasource ran for tenant 140
+""2024-04-15 16:12:35 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9000 (http) with context path ''
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getTemplatesStatisticsUsingGET_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: saveFormulaSetUsingPOST_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: deleteByMappingValueIdUsingGET_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getMappingSetByIDUsingGET_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getMappingSetValuesByIdUsingGET_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: saveAllMappingValuesUsingPOST_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: generateSequenceUsingPOST_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: generateHdlFromLobUsingGET_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getBatchNamesUsingGET_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: onFallbackmethodUsingPOST_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: loadAndImportDataV1UsingPOST_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getFbdiColumnSequenceUsingGET_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getFbdiTemplateColumnsUsingGET_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getFbdiTemplatesUsingGET_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: saveFbdiTemplateColumnsUsingPOST_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: saveFbdiTemplateHdrsUsingPOST_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: uploadCtlGetColumnSeqUsingPOST_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getAllSourceObjectsUsingGET_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getCloudColumnsUsingGET_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getSourceColumnsUsingGET_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getParentObjectCodeByRoleUsingGET_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getProjectsByRoleUsingGET_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: downloadSourceFileUsingGET_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: loadHdlCloudMetaDataUsingPOST_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: loadMetaDataFromCloudUsingPOST_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: uploadFileUsingPOST_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: handleUsingDELETE_1
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_2
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_3
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_4
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_5
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_6
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_7
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_8
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_9
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_10
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_11
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_12
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_13
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_14
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_15
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_16
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_17
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_18
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_19
+""2024-04-15 16:12:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_20
+""2024-04-15 16:12:36 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: saveRoleObjectUsingPOST_1
+""2024-04-15 16:12:36 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: createDynamicViewUsingPOST_1
+""2024-04-15 16:12:36 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getSheetNameUsingGET_1
+""2024-04-15 16:12:36 [main] INFO  c.r.p.c.ConvertRiteApiApplication - Started ConvertRiteApiApplication in 47.083 seconds (JVM running for 47.849)
+""2024-04-15 16:12:43 [http-nio-9000-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+""2024-04-15 16:12:43 [http-nio-9000-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+""2024-04-15 16:12:43 [http-nio-9000-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+""2024-04-15 16:12:43 [http-nio-9000-exec-1] INFO  c.r.p.c.configuration.LoggingAspect - Start execution of downloadValFailRec
+""2024-04-15 16:12:44 [http-nio-9000-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - DataSource-138 - Starting...
+""2024-04-15 16:12:48 [http-nio-9000-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - DataSource-138 - Start completed.
+""2024-04-15 16:12:52 [http-nio-9000-exec-1] INFO  c.r.products.convertrite.utils.Utils - Start of clobToString Method######
+""2024-04-15 16:12:52 [http-nio-9000-exec-1] INFO  c.r.p.c.configuration.LoggingAspect - End execution of downloadValFailRec took 8 seconds
+""2024-04-15 16:13:41 [http-nio-9000-exec-3] INFO  c.r.p.c.configuration.LoggingAspect - Start execution of downloadCloudImportSuccessRec
+""2024-04-15 16:13:42 [http-nio-9000-exec-3] INFO  c.r.products.convertrite.utils.Utils - Start of clobToString Method######
+""2024-04-15 16:13:42 [http-nio-9000-exec-3] INFO  c.r.p.c.configuration.LoggingAspect - End execution of downloadCloudImportSuccessRec took 1 seconds
+""2024-04-15 16:18:17 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'tenant-persistence-unit'
+""2024-04-15 16:18:17 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'master-persistence-unit'
+""2024-04-15 16:18:17 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - masterDataSource - Shutdown initiated...
+""2024-04-15 16:18:17 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - masterDataSource - Shutdown completed.
+"

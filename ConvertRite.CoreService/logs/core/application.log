@@ -1,0 +1,97 @@
+2025-03-04 16:28:23 INFO  c.r.p.c.ConvertRiteApiApplication - Starting ConvertRiteApiApplication using Java 23.0.2 on Rite with PID 21236 (D:\SCAT\ConvertRite.CoreService 1\ConvertRite.CoreService\target\classes started by BhavaniChitikela in D:\SCAT\ConvertRite.CoreService 1\ConvertRite.CoreService)
+2025-03-04 16:28:23 INFO  c.r.p.c.ConvertRiteApiApplication - The following profiles are active: test
+2025-03-04 16:28:27 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-04 16:28:27 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 58 ms. Found 1 JPA repository interfaces.
+2025-03-04 16:28:27 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-04 16:28:27 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 JPA repository interfaces.
+2025-03-04 16:28:27 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-04 16:28:28 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 872 ms. Found 122 JPA repository interfaces.
+2025-03-04 16:28:29 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'asyncConfig' of type [com.rite.products.convertrite.multitenancy.async.AsyncConfig$$EnhancerBySpringCGLIB$$bb7cd511] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2025-03-04 16:28:31 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9000 (http)
+2025-03-04 16:28:31 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-04 16:28:31 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.53]
+2025-03-04 16:28:31 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-04 16:28:31 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7807 ms
+2025-03-04 16:28:37 INFO  c.r.p.c.m.c.master.ConfigurationService - Response-->{"url":"jdbc:postgresql://129.80.15.245:5000/postgres","username":"postgres","password":"M8*Ny=h@"}
+2025-03-04 16:28:37 INFO  o.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: master-persistence-unit]
+2025-03-04 16:28:37 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2025-03-04 16:28:37 INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-03-04 16:28:38 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2025-03-04 16:28:39 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-03-04 16:28:39 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'master-persistence-unit'
+2025-03-04 16:28:40 INFO  o.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: tenant-persistence-unit]
+2025-03-04 16:28:41 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
+2025-03-04 16:28:41 WARN  o.h.b.i.InFlightMetadataCollectorImpl - HHH000069: Duplicate generator name process_requests_generator
+2025-03-04 16:28:42 WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.rite.products.convertrite.model.XxrFormulaColumnsId
+2025-03-04 16:28:42 WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.rite.products.convertrite.model.XxrFormulaColumnsId
+2025-03-04 16:28:42 WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.rite.products.convertrite.model.XxrRoleObjectLinksId
+2025-03-04 16:28:42 WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.rite.products.convertrite.model.XxrRoleObjectLinksId
+2025-03-04 16:28:42 WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.rite.products.convertrite.model.CloudTableId
+2025-03-04 16:28:42 WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.rite.products.convertrite.model.CloudTableId
+2025-03-04 16:28:42 WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.rite.products.convertrite.model.XxrProjectsId
+2025-03-04 16:28:42 WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.rite.products.convertrite.model.XxrProjectsId
+2025-03-04 16:28:42 WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.rite.products.convertrite.model.CrCustomColumnId
+2025-03-04 16:28:42 WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.rite.products.convertrite.model.CrCustomColumnId
+2025-03-04 16:28:42 WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.rite.products.convertrite.model.XxrUserRolesId
+2025-03-04 16:28:42 WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.rite.products.convertrite.model.XxrUserRolesId
+2025-03-04 16:28:42 WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.rite.products.convertrite.model.XxrFormulaTablesId
+2025-03-04 16:28:42 WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.rite.products.convertrite.model.XxrFormulaTablesId
+2025-03-04 16:28:42 INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: com.rite.products.convertrite.model.CrBatchProcessDetails (class must be instantiated by Interceptor)
+2025-03-04 16:28:43 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-03-04 16:28:43 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'tenant-persistence-unit'
+2025-03-04 16:28:49 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-03-04 16:28:49 INFO  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: e204bcce-633c-46be-8622-c3e72868559e
+
+2025-03-04 16:28:49 INFO  c.r.p.c.configuration.JwtSecurityConfig - entering configure Method####
+2025-03-04 16:28:50 INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2025-03-04 16:28:50 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@66f39429, org.springframework.security.web.context.SecurityContextPersistenceFilter@259c2915, org.springframework.security.web.header.HeaderWriterFilter@3c15ab2c, org.springframework.web.filter.CorsFilter@24af2901, org.springframework.security.web.csrf.CsrfFilter@3f575bad, org.springframework.security.web.authentication.logout.LogoutFilter@3e0d75a4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@499f33a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@561797fd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@515a4ee, org.springframework.security.web.session.SessionManagementFilter@33a228d8, org.springframework.security.web.access.ExceptionTranslationFilter@346df1c0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@90b779d]
+2025-03-04 16:28:50 INFO  c.r.p.c.m.c.t.h.DynamicDataSourceBasedMultiTenantSpring - DynamicDataSources based multitenancy enabled
+2025-03-04 16:28:50 INFO  com.zaxxer.hikari.HikariDataSource - masterDataSource - Starting...
+2025-03-04 16:28:54 INFO  com.zaxxer.hikari.HikariDataSource - masterDataSource - Start completed.
+2025-03-04 16:28:57 INFO  o.s.b.w.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9000 (http) with context path ''
+2025-03-04 16:28:57 INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2025-03-04 16:28:57 INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2025-03-04 16:28:57 INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2025-03-04 16:28:57 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: downloadEssJobDetailsUsingGET_1
+2025-03-04 16:28:57 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getTemplatesStatisticsUsingGET_1
+2025-03-04 16:28:57 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getMappingSetByIDUsingGET_1
+2025-03-04 16:28:57 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getMappingSetValuesByIdUsingGET_1
+2025-03-04 16:28:57 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: saveAllMappingValuesUsingPOST_1
+2025-03-04 16:28:57 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: generateSequenceUsingPOST_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: generateHdlFromLobUsingGET_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getBatchNamesUsingGET_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getRecordsPostJobExecutionUsingPOST_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: onFallbackmethodUsingPOST_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: loadAndImportDataV1UsingPOST_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getFbdiColumnSequenceUsingGET_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getFbdiTemplateColumnsUsingGET_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getFbdiTemplatesUsingGET_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: saveFbdiTemplateColumnsUsingPOST_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: saveFbdiTemplateHdrsUsingPOST_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: uploadCtlGetColumnSeqUsingPOST_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getAllSourceObjectsUsingGET_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getCloudColumnsUsingGET_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getSourceColumnsUsingGET_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getParentObjectCodeByRoleUsingGET_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getProjectsByRoleUsingGET_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: downloadSourceFileUsingGET_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: loadHdlCloudMetaDataUsingPOST_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: loadMetaDataFromCloudUsingPOST_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: uploadFileUsingPOST_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: saveRoleObjectUsingPOST_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: createDynamicViewUsingPOST_1
+2025-03-04 16:28:58 INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getSheetNameUsingGET_1
+2025-03-04 16:28:58 INFO  c.r.p.c.ConvertRiteApiApplication - Started ConvertRiteApiApplication in 36.409 seconds (JVM running for 37.556)
+2025-03-04 16:37:18 WARN  com.zaxxer.hikari.pool.PoolBase - masterDataSource - Failed to validate connection org.postgresql.jdbc.PgConnection@19fe5752 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-03-04 16:37:18 WARN  com.zaxxer.hikari.pool.PoolBase - masterDataSource - Failed to validate connection org.postgresql.jdbc.PgConnection@5d4ab805 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-03-04 16:37:18 WARN  com.zaxxer.hikari.pool.PoolBase - masterDataSource - Failed to validate connection org.postgresql.jdbc.PgConnection@36653039 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-03-04 16:37:18 WARN  com.zaxxer.hikari.pool.PoolBase - masterDataSource - Failed to validate connection org.postgresql.jdbc.PgConnection@7fabb682 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-03-04 16:37:18 WARN  com.zaxxer.hikari.pool.PoolBase - masterDataSource - Failed to validate connection org.postgresql.jdbc.PgConnection@5145721d (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-03-04 16:37:18 WARN  com.zaxxer.hikari.pool.PoolBase - masterDataSource - Failed to validate connection org.postgresql.jdbc.PgConnection@59c762a0 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-03-04 16:37:18 WARN  com.zaxxer.hikari.pool.PoolBase - masterDataSource - Failed to validate connection org.postgresql.jdbc.PgConnection@463c7559 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-03-04 16:37:18 WARN  com.zaxxer.hikari.pool.PoolBase - masterDataSource - Failed to validate connection org.postgresql.jdbc.PgConnection@6401c4ba (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-03-04 16:37:18 WARN  com.zaxxer.hikari.pool.PoolBase - masterDataSource - Failed to validate connection org.postgresql.jdbc.PgConnection@1eae87bd (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-03-04 16:37:18 WARN  com.zaxxer.hikari.pool.PoolBase - masterDataSource - Failed to validate connection org.postgresql.jdbc.PgConnection@7c1e34aa (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-03-04 17:07:23 WARN  com.zaxxer.hikari.pool.PoolBase - masterDataSource - Failed to validate connection org.postgresql.jdbc.PgConnection@3ec38e91 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
