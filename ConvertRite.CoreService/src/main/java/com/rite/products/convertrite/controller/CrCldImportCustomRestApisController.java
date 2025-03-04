@@ -113,7 +113,7 @@ public class CrCldImportCustomRestApisController {
                     .map(objectError -> objectError.getDefaultMessage())
                     .collect(Collectors.joining(", "));
 
-            return new ResponseEntity<>("Validation Failed: " + errorMessages, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("validation Failed: " + errorMessages, HttpStatus.BAD_REQUEST);
         }
         cldImportCustomRestApisServiceImpl.supplierTaxProfileUpdate(customRestApiReqPo);
 
