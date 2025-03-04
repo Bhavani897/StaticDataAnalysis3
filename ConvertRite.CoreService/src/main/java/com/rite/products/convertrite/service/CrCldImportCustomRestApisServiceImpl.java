@@ -792,7 +792,7 @@ public class CrCldImportCustomRestApisServiceImpl {
     */
 
     public void supplierTaxProfileUpdate(CustomRestApiReqPo customRestApiReqPo) throws Exception {
-        log.info("Start of supplierTaxProfileUpdate in service ###");
+        log.info("start of supplierTaxProfileUpdate in service ###");
         Connection con = null;
         List<CrSupplierTaxProfileErrors> errorsList = new ArrayList<>();
         CrCloudTemplateHeadersView crCloudTemplateHeadersView = cloudTemplateHeadersViewRepository.findById(customRestApiReqPo.getCldTemplateId()).get();
