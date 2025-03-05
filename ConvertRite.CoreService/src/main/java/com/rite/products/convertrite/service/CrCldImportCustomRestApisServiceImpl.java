@@ -105,7 +105,7 @@ public class CrCldImportCustomRestApisServiceImpl {
         String stagingTableName = crCloudTemplateHeadersView.getStagingTableName();
 
         try {
-            CrCloudJobStatus crCloudJobStatus=insertIntoCrCloudJobStatus(customRestApiReqPo,Status.COMPLETED.getStatus());
+            CrCloudJobStatus crCloudJobStatus = insertIntoCrCloudJobStatus(customRestApiReqPo, Status.COMPLETED.getStatus());
             // create database connection
             log.info("TENANT-->" + customRestApiReqPo.getPodId());
             con = dynamicDataSourceBasedMultiTenantConnectionProvider.getConnection(String.valueOf(customRestApiReqPo.getPodId()));
@@ -194,7 +194,7 @@ public class CrCldImportCustomRestApisServiceImpl {
         }
     }
 
-    public void createOrUpdateBranch(CustomRestApiReqPo customRestApiReqPo) {
+   /* public void createOrUpdateBranch(CustomRestApiReqPo customRestApiReqPo) {
         log.info("Start of createOrUpdateBranch Method in service ###");
         Connection con = null;
         List<CrCreateBankBranchErrors> branchesErrorsLi = new ArrayList<>();
@@ -275,6 +275,96 @@ public class CrCldImportCustomRestApisServiceImpl {
             }
         }
     }
+    */
+
+    public void createOrUpdateBranch(CustomRestApiReqPo customRestApiReqPo) {
+        log.info("Start of createOrUpdateBranch Method in service ###");
+        String sanitizedBatchName = sanitizeInput(customRestApiReqPo.getBatchName());
+        String sanitizedTemplateId = sanitizeInput(String.valueOf(customRestApiReqPo.getCldTemplateId()));
+        String sanitizedPodId = sanitizeInput(String.valueOf(customRestApiReqPo.getPodId()));
+        Connection con = null;
+        List<CrCreateBankBranchErrors> branchesErrorsLi = new ArrayList<>();
+        AsyncProcessStatus asyncStatus = null;
+        CrCloudJobStatus crCloudJobStatus = insertIntoCrCloudJobStatus(customRestApiReqPo, Status.IN_PROGRESS.getStatus());
+        try {
+            asyncStatus = asyncProcessStatusService.startProcess("CreateBranch", customRestApiReqPo.getCldTemplateId(), customRestApiReqPo.getBatchName(), "ConvertRite");
+            HttpHeaders headers = new HttpHeaders();
+            headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            headers.setBasicAuth(customRestApiReqPo.getCldUserName(), customRestApiReqPo.getCldPassword());
+            con = dynamicDataSourceBasedMultiTenantConnectionProvider.getConnection(sanitizedPodId);
+            CrCloudTemplateHeadersView crCloudTemplateHeadersView = cloudTemplateHeadersViewRepository.findById(customRestApiReqPo.getCldTemplateId()).get();
+            String stagingTableName = crCloudTemplateHeadersView.getStagingTableName();
+            if (!isValidTableName(stagingTableName)) {
+                throw new IllegalArgumentException("Invalid table name");
+            }
+            PreparedStatement stmtA = con.prepareStatement("SELECT DISTINCT * FROM " + stagingTableName + " WHERE CR_BATCH_NAME = ?");
+            stmtA.setString(1, sanitizedBatchName);
+            ResultSet resultSetA = stmtA.executeQuery();
+            List<CrBranchesResPo> branchesList = getAllCashBranches(headers, customRestApiReqPo);
+            log.info("branchesList-->" + branchesList.size());
+
+            Set<Long> branchPartyIds = new HashSet<>();
+            for (CrBranchesResPo branch : branchesList) {
+                branchPartyIds.add(branch.getBranchPartyId());
+            }
+            log.info("-branchPartyIds-->" + branchPartyIds.size());
+            List<CompletableFuture<CrCreateBankBranchErrors>> futures = new ArrayList<>();
+
+            while (resultSetA.next()) {
+                Long branchPartyId = null;
+                if (resultSetA.getString("BRANCH_PARTY_ID") != null) {
+                    branchPartyId = Long.valueOf(resultSetA.getString("BRANCH_PARTY_ID"));
+                }
+                log.info(branchPartyIds.contains(branchPartyId) + "--branchPartyId-->" + branchPartyId);
+
+                if (branchPartyIds.contains(branchPartyId) && branchPartyId != null) {
+                    futures.add(patchBranchAsync(resultSetA, customRestApiReqPo, headers, branchPartyId));
+                } else {
+                    futures.add(createBranchAsync(resultSetA, customRestApiReqPo, headers));
+                }
+            }
+            CompletableFuture<Void> allOf = CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
+            allOf.join();
+
+            boolean hasError = false;
+            boolean hasSuccess = false;
+
+            for (CompletableFuture<CrCreateBankBranchErrors> future : futures) {
+                CrCreateBankBranchErrors error = future.join();
+                if (error != null) {
+                    branchesErrorsLi.add(error);
+                    if (error.getStatus().equals(Status.ERROR.getStatus())) {
+                        hasError = true;
+                    } else if (error.getStatus().equals(Status.SUCCESS.getStatus())) {
+                        hasSuccess = true;
+                    }
+                }
+            }
+            log.info("banksErrorsLi---------{}", branchesErrorsLi.size());
+            updateAsyncProcessStatusAndCrCloudJobStatus(hasError, hasSuccess, asyncStatus, branchesErrorsLi.isEmpty(), customRestApiReqPo, crCloudJobStatus);
+
+            if (!branchesErrorsLi.isEmpty()) {
+                crCreateBankBranchErrorsRepository.saveAll(branchesErrorsLi);
+            }
+
+        } catch (Exception e) {
+            log.error("Error in createOrUpdateBranch()--->" + e.getMessage());
+            if (asyncStatus != null) {
+                asyncProcessStatusService.endProcess(asyncStatus.getAsyncProcessId(), customRestApiReqPo.getCldTemplateId(), customRestApiReqPo.getBatchName(), Status.ERROR.getStatus(), e.getMessage(), "ConvertRite", crCloudJobStatus.getJobId());
+            }
+        }
+    }
+    private String sanitizeInput(String input) {
+        if (input == null) return null;
+        return input.replaceAll("[^a-zA-Z0-9_-]", "");
+    }
+    private boolean isValidTableName(String tableName) {
+        return tableName.matches("[a-zA-Z0-9_]+");
+    }
+
+
+
 
     private void updateAsyncProcessStatusAndCrCloudJobStatus(boolean hasError, boolean hasSuccess, AsyncProcessStatus asyncStatus, boolean isErrorsListEmpty, CustomRestApiReqPo customRestApiReqPo, CrCloudJobStatus crCloudJobStatus) {
         if (hasError && hasSuccess && asyncStatus != null && !isErrorsListEmpty) {
@@ -659,7 +749,7 @@ public class CrCldImportCustomRestApisServiceImpl {
         return error;
     }
 
-   /* public void updateProjectDff(CustomRestApiReqPo customRestApiReqPo)
+    public void updateProjectDff(CustomRestApiReqPo customRestApiReqPo)
             throws Exception {
         log.info("Start of updateProjectDff method in service ##");
         Connection con = null;
@@ -684,9 +774,9 @@ public class CrCldImportCustomRestApisServiceImpl {
                 con.close();
         }
     }
-    */
 
-    public void updateProjectDff(CustomRestApiReqPo customRestApiReqPo) throws Exception {
+
+    /*public void updateProjectDff(CustomRestApiReqPo customRestApiReqPo) throws Exception {
         log.info("Start of updateProjectDff method in service ##");
         Connection con = null;
         try {
@@ -716,7 +806,7 @@ public class CrCldImportCustomRestApisServiceImpl {
             }
         }
     }
-
+     */
     private List<CrProjDffError> updateProjectDffRestApi(CustomRestApiReqPo customRestApiReqPo, ResultSet rs, List<CrProjDffError> projectErrorLi) throws Exception {
         try {
             HttpHeaders headers = new HttpHeaders();
@@ -755,7 +845,7 @@ public class CrCldImportCustomRestApisServiceImpl {
     }
 
 
-   /* public void supplierTaxProfileUpdate(CustomRestApiReqPo customRestApiReqPo) throws Exception {
+    public void supplierTaxProfileUpdate(CustomRestApiReqPo customRestApiReqPo) throws Exception {
         log.info("Start of supplierTaxProfileUpdate in service ###");
         Connection con = null;
         List<CrSupplierTaxProfileErrors> errorsList = new ArrayList<>();
@@ -789,9 +879,9 @@ public class CrCldImportCustomRestApisServiceImpl {
     }
 
 
-    */
 
-    public void supplierTaxProfileUpdate(CustomRestApiReqPo customRestApiReqPo) throws Exception {
+
+   /* public void supplierTaxProfileUpdate(CustomRestApiReqPo customRestApiReqPo) throws Exception {
         log.info("start of supplierTaxProfileUpdate in service ###");
         Connection con = null;
         List<CrSupplierTaxProfileErrors> errorsList = new ArrayList<>();
@@ -830,6 +920,8 @@ public class CrCldImportCustomRestApisServiceImpl {
         }
     }
 
+
+    */
     private CrSupplierTaxProfileErrors supplierTaxProfileUpdateApi(ResultSet rs, HttpHeaders headers
             , String batchName, CustomRestApiReqPo customRestApiReqPo) {
         CrSupplierTaxProfileReqPo supTaxRegReqPo = new CrSupplierTaxProfileReqPo();
@@ -867,7 +959,7 @@ public class CrCldImportCustomRestApisServiceImpl {
         return stpError;
     }
 
-   /* public void validateCcid(CustomRestApiReqPo customRestApiReqPo) throws Exception {
+   public void validateCcid(CustomRestApiReqPo customRestApiReqPo) throws Exception {
         log.info("Start of validateCcid method in service ##");
         AsyncProcessStatus processStatus = asyncProcessStatusRepository.save(initializeAsyncProcessStatus());
         log.info("Saved async process status to CR_ASYNC_PROCESS_STATUS table");
@@ -983,9 +1075,9 @@ public class CrCldImportCustomRestApisServiceImpl {
             executor.shutdown();
         }
     }
-    */
 
-    public void validateCcid(CustomRestApiReqPo customRestApiReqPo) throws Exception {
+
+   /* public void validateCcid(CustomRestApiReqPo customRestApiReqPo) throws Exception {
         log.info("Start of validateCcid method in service ##");
         if (customRestApiReqPo.getCcidColumnName() == null || customRestApiReqPo.getCcidColumnName().isEmpty()) {
             throw new IllegalArgumentException("CcidColumnName is required and cannot be empty.");
@@ -1087,7 +1179,7 @@ public class CrCldImportCustomRestApisServiceImpl {
             executor.shutdown();
         }
     }
-
+    */
 
 
     private AsyncProcessStatus initializeAsyncProcessStatus() {
@@ -1523,7 +1615,7 @@ public class CrCldImportCustomRestApisServiceImpl {
         return crCreateBankAccountReqPo;
     }
 
-   /* public void updateCldStagingTable(String updateType, CustomRestApiReqPo customRestApiReqPo) throws SQLException {
+    public void updateCldStagingTable(String updateType, CustomRestApiReqPo customRestApiReqPo) throws SQLException {
         try {
             log.info("==============updateCldStagingTable=================" + customRestApiReqPo);
             ResultSet res = null;
@@ -1635,9 +1727,9 @@ public class CrCldImportCustomRestApisServiceImpl {
         }
     }
 
-    */
 
-    public void updateCldStagingTable(String updateType, CustomRestApiReqPo customRestApiReqPo) throws SQLException {
+
+   /* public void updateCldStagingTable(String updateType, CustomRestApiReqPo customRestApiReqPo) throws SQLException {
         try {
             log.info("==============updateCldStagingTable=================" + customRestApiReqPo);
             HttpHeaders headers = new HttpHeaders();
@@ -1756,4 +1848,6 @@ public class CrCldImportCustomRestApisServiceImpl {
             throw new SQLException("Error in updateCldStagingTable: " + e.getMessage(), e);
         }
     }
+
+    */
 }

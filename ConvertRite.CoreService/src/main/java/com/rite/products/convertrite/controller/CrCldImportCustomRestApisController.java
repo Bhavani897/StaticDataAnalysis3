@@ -40,13 +40,39 @@ public class CrCldImportCustomRestApisController {
         cldImportCustomRestApisServiceImpl.createOrUpdateBank(customRestApiReqPo);
         return new ResponseEntity<>("successful", HttpStatus.OK);
     }
-    @ApiOperation(value = "This api is for creating branches")
+   /* @ApiOperation(value = "This api is for creating branches")
     @ApiResponses(value = {@ApiResponse(code = 200, message = "Successful Response"), @ApiResponse(code = 500, message = "Server Side Error"), @ApiResponse(code = 400, message = "Bad Request")})
     @PostMapping("/createbranch")
     public ResponseEntity<?> createOrUpdateBranch(@RequestBody CustomRestApiReqPo customRestApiReqPo) throws Exception {
         cldImportCustomRestApisServiceImpl.createOrUpdateBranch(customRestApiReqPo);
         return new ResponseEntity<>("successful", HttpStatus.OK);
     }
+    */
+
+    @ApiOperation(value = "This API is for creating branches")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successful Response"),
+            @ApiResponse(code = 201, message = "Branch Created Successfully"),
+            @ApiResponse(code = 400, message = "Bad Request - Invalid Input"),
+            @ApiResponse(code = 500, message = "Server Side Error")
+    })
+    @PostMapping("/createbranch")
+    public ResponseEntity<?> createOrUpdateBranch(@Valid @RequestBody CustomRestApiReqPo customRestApiReqPo, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            StringBuilder errorMessage = new StringBuilder();
+            bindingResult.getAllErrors().forEach(error -> errorMessage.append(error.getDefaultMessage()).append(" "));
+            return new ResponseEntity<>(errorMessage.toString(), HttpStatus.BAD_REQUEST);
+        }
+        try {
+            cldImportCustomRestApisServiceImpl.createOrUpdateBranch(customRestApiReqPo);
+            return new ResponseEntity<>("Branch created/updated successfully", HttpStatus.CREATED);  // Return 201 Created
+        } catch (Exception e) {
+            return new ResponseEntity<>("Server error", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
+
 
     @ApiOperation(value = "This api is for creating bank account")
     @ApiResponses(value = {@ApiResponse(code = 200, message = "Successful Response"), @ApiResponse(code = 500, message = "Server Side Error"), @ApiResponse(code = 400, message = "Bad Request")})
@@ -56,17 +82,14 @@ public class CrCldImportCustomRestApisController {
         return new ResponseEntity<>("successful", HttpStatus.OK);
     }
 
-   /* @ApiOperation(value = "This api is for updating project DFF fields")
+    @ApiOperation(value = "This api is for updating project DFF fields")
     @ApiResponses(value = {@ApiResponse(code = 200, message = "Successful Response"), @ApiResponse(code = 500, message = "Server Side Error"), @ApiResponse(code = 400, message = "Bad Request")})
     @PostMapping("/updateprojectdff")
     public ResponseEntity<?> updateProjectDff(@RequestBody CustomRestApiReqPo customRestApiReqPo) throws Exception {
         cldImportCustomRestApisServiceImpl.updateProjectDff(customRestApiReqPo);
         return new ResponseEntity<>("successful", HttpStatus.OK);
     }
-
-    */
-
-    @ApiOperation(value = "This API is for updating project DFF fields")
+   /* @ApiOperation(value = "This API is for updating project DFF fields")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successful Response"),
             @ApiResponse(code = 500, message = "Server Side Error"),
@@ -89,16 +112,18 @@ public class CrCldImportCustomRestApisController {
     }
 
 
-   /* @ApiOperation(value = "This api is for tax registrations")
+    */
+
+    @ApiOperation(value = "This api is for tax registrations")
     @ApiResponses(value = {@ApiResponse(code = 200, message = "Successful Response"), @ApiResponse(code = 500, message = "Server Side Error"), @ApiResponse(code = 400, message = "Bad Request")})
     @PostMapping("/supplierTaxProfileUpdate")
     public ResponseEntity<?> supplierTaxProfileUpdate(@RequestBody CustomRestApiReqPo customRestApiReqPo) throws Exception {
         cldImportCustomRestApisServiceImpl.supplierTaxProfileUpdate(customRestApiReqPo);
         return new ResponseEntity<>("successful", HttpStatus.OK);
     }
-*/
 
-    @ApiOperation(value = "This API is for tax registrations")
+
+   /* @ApiOperation(value = "This API is for tax registrations")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successful Response"),
             @ApiResponse(code = 500, message = "Server Side Error"),
@@ -120,7 +145,9 @@ public class CrCldImportCustomRestApisController {
         return new ResponseEntity<>("Successful", HttpStatus.OK);
     }
 
-   /* @ApiOperation("This Api is for validate ccid")
+
+    */
+    @ApiOperation("This Api is for validate ccid")
     @ApiResponses(value = { @ApiResponse(code = 200, message = "Successful Response"),
             @ApiResponse(code = 500, message = "Server Side Error") })
     @PostMapping("/validateccid")
@@ -130,9 +157,9 @@ public class CrCldImportCustomRestApisController {
         return new ResponseEntity<String>("successful", HttpStatus.OK);
     }
 
-    */
 
-    @ApiOperation(value = "This API is for validating CCID")
+
+   /* @ApiOperation(value = "This API is for validating CCID")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successful Response"),
             @ApiResponse(code = 500, message = "Server Side Error"),
@@ -152,9 +179,8 @@ public class CrCldImportCustomRestApisController {
         cldImportCustomRestApisServiceImpl.validateCcid(customRestApiReqPo);
         return new ResponseEntity<>("Successful", HttpStatus.OK);
     }
-
-
-   /* @ApiOperation("This Api updates Bank Number,Branch Number,Bank Account Id")
+    */
+    @ApiOperation("This Api updates Bank Number,Branch Number,Bank Account Id")
     @ApiResponses(value = { @ApiResponse(code = 200, message = "Successful Response"),
             @ApiResponse(code = 500, message = "Server Side Error") })
     @PostMapping("/update/{updateType}")
@@ -163,9 +189,9 @@ public class CrCldImportCustomRestApisController {
         cldImportCustomRestApisServiceImpl.updateCldStagingTable(updateType,customRestApiReqPo);
         return new ResponseEntity<String>("successful", HttpStatus.OK);
     }
-    */
 
-    @ApiOperation(value = "This API updates Bank Number, Branch Number, Bank Account Id")
+
+   /* @ApiOperation(value = "This API updates Bank Number, Branch Number, Bank Account Id")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successful Response"),
             @ApiResponse(code = 500, message = "Server Side Error"),
@@ -186,6 +212,7 @@ public class CrCldImportCustomRestApisController {
         return new ResponseEntity<>("Successful", HttpStatus.OK);
     }
 
+    */
 
     @GetMapping("/download-bank-account-error-records")
     public ResponseEntity<byte[]> downloadBankAccountErrorRecords(@RequestParam Long cldTempId,@RequestParam String batchName) {
